@@ -5,14 +5,14 @@
     <head>
         <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
         <meta content="utf-8" http-equiv="encoding">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <title>AM4 Tools</title>
+        <title>AM4 Stopover Finder</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
         <script type="text/javascript" src="autoForm.js"></script>
         <link rel="stylesheet" href="autoForm.css">
         <link rel="stylesheet" href="radio.css">
         <link rel="stylesheet" href="switch.css">
+        <link rel="stylesheet" href="button.css">
         
         <script src="https://cesium.com/downloads/cesiumjs/releases/1.65/Build/Cesium/Cesium.js"></script>
         <link href="https://cesium.com/downloads/cesiumjs/releases/1.65/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
@@ -65,7 +65,7 @@
             <div class="inputs">
                 <table class="masterTable">
                     <tr>
-                        <td id="acInputGroup">
+                        <td id="acInputGroup" colspan="4">
                             <div class="autocomplete">
                                 <input id="acInput" type="text" name="inputAC" placeholder="Input Aircraft">
                             </div>
@@ -78,12 +78,26 @@
                             </div>
                         </td>
                         <td style="height: 100%" id="stopoverDisplay">
-                            <div style="padding: 5px;">Input Data!</div>
+                            <div class="padLR">---</div>
                         </td>
                         <td style="height: 100%">
                             <div class="autocomplete">
                                 <input id="dest" type="text" name="inputAP" placeholder="Input Destination">
                             </div>
+                        </td>
+                        <td style="height: 100%">
+                            <button id="submitBtn" onclick="run()" class="btn">run()</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="padLR" id="origName">---</div>
+                        </td>
+                        <td>
+                            <div class="padLR" id="stopName">---</div>
+                        </td>
+                        <td>
+                            <div class="padLR" id="destName">---</div>
                         </td>
                     </tr>
                 </table>
@@ -108,7 +122,7 @@
 
             .inputs { right: 0; }
 
-            .inputRow { height: 35px; }
+            .inputRow { height: 22px; }
 
             #stopover {
                 margin: 26px 10px 0px 10px;
@@ -122,6 +136,8 @@
             }
 
             .success { background-color: #2d862d; }
+
+            .padLR { padding-left: 5px; padding-right: 5px; }
 
             table, td {
                 border-collapse: collapse;
@@ -156,5 +172,4 @@
             }
         </style>
     </body>
-
 </html>
